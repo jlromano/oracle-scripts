@@ -1,0 +1,1 @@
+flashback_time="to_timestamp(to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),'yyyy-mm-dd hh24:mi:ss')"

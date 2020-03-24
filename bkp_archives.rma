@@ -1,0 +1,19 @@
+sql 'alter system archive log current';
+sql 'alter system archive log current';
+sql 'alter system archive log current';
+run
+{
+ set command id to 'RMAN ARCHIVE LOG';
+ allocate channel c1 device type disk;
+  backup
+    archivelog all
+      not backed up 1 times
+      format '/u01/backup/bkp-archives/arch_%d_%s_%p_%D_%M_%Y_%t';
+  backup
+    current controlfile
+      format '/u01/backup/bkp-archives/control_%d_%s_%p_%D_%M_%Y_%t';
+  backup
+    spfile
+      format '/u01/backup/bkp-archives/spfile_%d_%s_%p_%D_%M_%Y_%t';
+  release channel c1;
+}
